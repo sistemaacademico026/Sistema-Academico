@@ -7,17 +7,13 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: '/login',
+      name: 'inicio',
+      component: PaginaInicio,
     },
     {
       path: '/login',
       name: 'login',
       component: () => import('@/views/SimpleLogin.vue'),
-    },
-    {
-      path: '/Inicio',
-      name: 'inicio',
-      component: PaginaInicio,
     },
     {
       path: '/Registro',
@@ -26,8 +22,14 @@ const router = createRouter({
     },
     {
       path: '/Estudiantes',
-      name: 'estudiantes',
-      component: () => import('@/views/EstudiantesInicio.vue'),
+      name: 'estudiantes-lista',
+      component: () => import('@/views/EstudiantesLista.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/Estudiantes/:id',
+      name: 'estudiante-perfil',
+      component: () => import('@/views/EstudiantePerfil.vue'),
     },
     {
       path: '/admin',
@@ -40,7 +42,9 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
   if (to.meta.requiresAuth) {
-    const { data: { session } } = await supabase.auth.getSession()
+    const {
+      data: { session },
+    } = await supabase.auth.getSession()
     if (!session) {
       next('/login')
     } else {

@@ -27,6 +27,10 @@ export function useAuth() {
     return data
   }
 
+  function getUserRole() {
+    return state.user?.user_metadata?.role ?? null
+  }
+
   async function logout() {
     const { error } = await supabase.auth.signOut()
     if (error) throw error
@@ -44,5 +48,6 @@ export function useAuth() {
     login,
     logout,
     signUp,
+    getUserRole,
   }
 }

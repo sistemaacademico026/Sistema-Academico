@@ -37,8 +37,8 @@ async function handleLogout() {
     </header>
     <main class="dashboard-content">
       <div class="welcome-card">
-        <h2>Bienvenido al Sistema Académico</h2>
-        <p>Aquí podrás gestionar el control de asistencia de los alumnos.</p>
+        <h2>Bienvenido al Panel de Administración</h2>
+        <p>Gestiona alumnos, consultas de asistencia y reportes desde aquí.</p>
       </div>
     </main>
   </div>
@@ -48,7 +48,7 @@ async function handleLogout() {
 .dashboard {
   position: fixed;
   inset: 0;
-  background: #0f172a;
+  background: #000000;
   color: #fff;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   overflow-y: auto;
@@ -59,8 +59,8 @@ async function handleLogout() {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: #022451;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .dashboard-header h1 {
@@ -93,9 +93,9 @@ async function handleLogout() {
 }
 
 .btn-logout:hover:not(:disabled) {
-  background: rgba(239, 68, 68, 0.1);
-  border-color: rgba(239, 68, 68, 0.3);
-  color: #fca5a5;
+  background: rgba(166, 166, 166, 0.15);
+  border-color: rgba(166, 166, 166, 0.3);
+  color: #d9d9d9;
 }
 
 .btn-logout:disabled {
